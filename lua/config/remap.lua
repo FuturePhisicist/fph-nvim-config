@@ -22,8 +22,8 @@ map("n", "gd", vim.lsp.buf.definition, opts)
 map("n", "K", vim.lsp.buf.hover, opts)
 
 -- MRU buffer cycling
-map("n", "<C-Tab>", function() require("config.switches").cycle_mru(1) end)
-map("n", "<C-S-Tab>", function() require("config.switches").cycle_mru(-1) end)
+-- map("n", "<C-Tab>", function() require("config.switches").cycle_mru(1) end)
+-- map("n", "<C-S-Tab>", function() require("config.switches").cycle_mru(-1) end)
 
 -- Gitsigns keymaps (now safe to call)
 local ok, gitsigns = pcall(require, "gitsigns")
@@ -34,5 +34,14 @@ if ok then
   map("n", "<leader>gb", gitsigns.blame_line, { desc = "Blame current line" })
   map("n", "<leader>gt", gitsigns.toggle_current_line_blame, { desc = "Toggle blame" })
   map("n", "<leader>gd", gitsigns.diffthis, { desc = "View diff" })
+end
+
+-- Telescope fuzzy finding
+local telescope_ok, builtin = pcall(require, "telescope.builtin")
+if telescope_ok then
+  map("n", "<leader>ff", builtin.find_files, { desc = "Telescope: Find files" })
+  map("n", "<leader>fg", builtin.live_grep, { desc = "Telescope: Live grep" })
+  map("n", "<leader>fb", builtin.buffers,    { desc = "Telescope: Buffers" })
+  map("n", "<leader>fh", builtin.help_tags,  { desc = "Telescope: Help tags" })
 end
 
