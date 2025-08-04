@@ -50,19 +50,6 @@ return {
     },
   },
   config = function(_, opts)
-    local gitsigns = require("gitsigns")
-    gitsigns.setup(opts)
-
-    -- Keymaps (safe to define after plugin loads)
-	-- ToDo: move to a unified location
-    local map = vim.keymap.set
-    local key_opts = { noremap = true, silent = true }
-
-    map("n", "]g", gitsigns.next_hunk, { desc = "Next Git hunk" })
-    map("n", "[g", gitsigns.prev_hunk, { desc = "Previous Git hunk" })
-    map("n", "<leader>gp", gitsigns.preview_hunk, { desc = "Preview Git hunk" })
-    map("n", "<leader>gb", gitsigns.blame_line, { desc = "Blame current line" })
-    map("n", "<leader>gt", gitsigns.toggle_current_line_blame, { desc = "Toggle blame" })
-    map("n", "<leader>gd", gitsigns.diffthis, { desc = "View diff" })
+  	require("gitsigns").setup(opts)
   end,
 }

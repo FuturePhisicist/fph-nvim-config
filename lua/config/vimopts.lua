@@ -18,3 +18,9 @@ vim.opt.hidden = true				-- It allows you to switch between buffers (open files)
 
 vim.g.mapleader = " "
 
+-- vim.opt.list = true
+-- vim.opt.listchars:append({
+--   tab = "→ ",      -- optional: show tabs
+--   trail = "·",     -- optional: show trailing space
+-- })
+
