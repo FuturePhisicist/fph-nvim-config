@@ -21,7 +21,7 @@ require("lazy").setup({
         { import = "plugins" }, -- 👈 loads from lua/plugins/
     },
     install = {
-        colorscheme = { "tokyonight" },
+        colorscheme = { "tokyonight-dark" },
     },
     -- checker = {
     --     enabled = true, -- 🟢 auto check plugin updates
