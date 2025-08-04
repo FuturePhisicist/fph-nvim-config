@@ -16,7 +16,7 @@ Features:
 2. Run `:Lazy sync` inside Neovim
 3. Install LSP servers (see below)
 
-## Language Servers
+## Language Servers (obsolete)
 
 ```bash
 sudo apt install npm
