@@ -2,47 +2,31 @@ return {
   "neovim/nvim-lspconfig",
   event = { "BufReadPre", "BufNewFile" },
   opts = function()
-    local icons = {
-      Error = " ",
-      Warn  = " ",
-      Hint  = " ",
-      Info  = " ",
-    }
-
-    local diagnostic_signs = {
-      { name = "DiagnosticSignError", text = icons.Error },
-      { name = "DiagnosticSignWarn",  text = icons.Warn },
-      { name = "DiagnosticSignHint",  text = icons.Hint },
-      { name = "DiagnosticSignInfo",  text = icons.Info },
-    }
-
-    for _, sign in ipairs(diagnostic_signs) do
-      vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
-    end
-
     return {
       diagnostics = {
-        underline = true,
+        underline = false,
         update_in_insert = false,
-        virtual_text = {
-          spacing = 4,
-          source = "if_many",
-          prefix = "●",
-        },
+        virtual_text = false,
+        signs = false,
         severity_sort = true,
-        signs = true,
+        float = {
+          border = "rounded",
+          source = false,
+        },
       },
 
       inlay_hints = {
-        enabled = true,
+        enabled = false,
       },
 
       codelens = {
         enabled = false,
       },
 
+      -- LSP capabilities (completion, etc.)
       capabilities = vim.lsp.protocol.make_client_capabilities(),
 
+      -- Optional formatting behavior
       format = {
         formatting_options = nil,
         timeout_ms = nil,
@@ -56,9 +40,8 @@ return {
         jsonls = {},
       },
 
-      setup = {
-        -- fallback example: ["*"] = function(server, opts) end
-      },
+      -- Optional custom setups
+      setup = {},
     }
   end,
 
