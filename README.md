@@ -26,17 +26,31 @@ source ~/.nvm/nvm.sh
 nvm install --lts
 nvm use --lts
 
+# Add NVM to Your Shell RC File
+# For Bash (default on Ubuntu)
+echo 'export NVM_DIR="$HOME/.nvm"' >> ~/.bashrc
+echo '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # Load NVM' >> ~/.bashrc
+echo '[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # Load NVM bash_completion' >> ~/.bashrc
+source ~/.bashrc
 
-sudo apt install clangd
+# For Zsh
+echo 'export NVM_DIR="$HOME/.nvm"' >> ~/.zshrc
+echo '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # Load NVM' >> ~/.zshrc
+echo '[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # Load NVM bash_completion' >> ~/.zshrc
+source ~/.zshrc
 
-# pip install pyright
-npm install -g pyright
+npm install -g neovim
 
-npm install -g bash-language-server
+# sudo apt install clangd
 
-npm install -g dockerfile-language-server-nodejs
+# # pip install pyright
+# npm install -g pyright
 
-npm install -g vscode-langservers-extracted
+# npm install -g bash-language-server
+
+# npm install -g dockerfile-language-server-nodejs
+
+# npm install -g vscode-langservers-extracted
 ```
 
 ## Overview
