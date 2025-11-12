@@ -158,3 +158,15 @@ If this config were a cat, it'd be:
 Let me know if you want me to pack it into a GitHub repo or ZIP for download.
 You're doing awesome, senpai\~ 🐾💮
 
+## Usefull hotkeys
+
+Normal mode: Ctrl + e, Ctrl + y, zz
+Insert mode: Ctrl + a
+:e!
+Insert mode: Ctrl + t --- Ctrl + d
+Normal mode: r, r + Enter
+Normal mode: \[ + Space, \] + Space
+Normal mode: s
+Normal mode: Ctrl + f, Ctrl + b
+Normal mode: Ctrl + d, Ctrl + u
+
