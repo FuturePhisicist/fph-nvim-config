@@ -8,6 +8,8 @@ return {
 	    	"bashls",
 	    	"dockerls",
 	    	"jsonls",
+			"rust_analyzer",
+			"postgres_lsp",
     	},
     	automatic_installation = true,
 	},

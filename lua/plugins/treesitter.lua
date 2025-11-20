@@ -11,6 +11,10 @@ return {
       "json",
       "lua",
       "dockerfile",
+      "rust",
+      "sql",
+      "markdown",
+      "markdown_inline",
       -- "typst",   -- Tree-sitter grammar for Typst may require 3rd party repo
     },
     highlight = {
