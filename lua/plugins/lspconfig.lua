@@ -5,6 +5,7 @@ return {
   dependencies = {
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
+    "linrongbin16/lsp-progress.nvim",
   },
 
   opts = {
