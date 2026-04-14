@@ -38,8 +38,20 @@ return {
     },
 
     servers = {
-      pyright = {},
+      pyright = {
+        -- filetypes = { "python" },
+        single_file_support = true,
+      },
       clangd = {},
+      clangd = {
+        cmd = {
+          "clangd",
+          "--background-index",
+          "--log=error",
+          -- filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
+        },
+        single_file_support = true,
+      },
       bashls = {},
       dockerls = {},
       jsonls = {},

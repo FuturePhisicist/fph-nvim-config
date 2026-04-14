@@ -16,6 +16,13 @@ Features:
 2. Run `:Lazy sync` inside Neovim
 3. Install LSP servers (see below)
 
+> [!IMPORTANT]
+> This command is for C/C++ projects that put their compile_commands.json not in the root of the project!
+
+```bash
+ln -s build/compile_commands.json ./compile_commands.json
+```
+
 ## Language Servers (obsolete)
 
 ```bash
