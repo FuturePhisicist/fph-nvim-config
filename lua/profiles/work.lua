@@ -17,13 +17,26 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 -- Python
+-- vim.api.nvim_create_autocmd("FileType", {
+--   pattern = { "python" },
+--   callback = function()
+--     set_local({
+--       shiftwidth = 4,
+--       tabstop = 4,
+--       softtabstop = 4,
+--       expandtab = true,     -- convert tabs to spaces
+--       fixendofline = true,  -- write a final newline at EOF
+--     })
+--   end,
+-- })
+
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "python" },
   callback = function()
     set_local({
-      shiftwidth = 4,
-      tabstop = 4,
-      softtabstop = 4,
+      shiftwidth = 2,
+      tabstop = 2,
+      softtabstop = 2,
       expandtab = true,     -- convert tabs to spaces
       fixendofline = true,  -- write a final newline at EOF
     })
