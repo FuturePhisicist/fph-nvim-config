@@ -1,10 +1,12 @@
+-- Complete f*** BS: https://www.qu8n.com/posts/treesitter-migration-guide-for-nvim-0-12
 return {
   "nvim-treesitter/nvim-treesitter",
-  branch = "master",
+  branch = "main",
   build = ":TSUpdate",
   event = { "BufReadPost", "BufNewFile" },
-  opts = {
-    ensure_installed = {
+
+  init = function()
+    local parsers = {
       "c",
       "cpp",
       "bash",
@@ -17,17 +19,35 @@ return {
       "markdown",
       "markdown_inline",
       -- "typst",   -- Tree-sitter grammar for Typst may require 3rd party repo
-    },
-    highlight = {
-      enable = true,
-	  additional_vim_regex_highlighting = false,
-    },
-    indent = {
-      enable = true,
-    },
-  },
-  config = function(_, opts)
-    require("nvim-treesitter.configs").setup(opts)
+    }
+
+    vim.api.nvim_create_autocmd("FileType", {
+      callback = function()
+        -- Enable treesitter highlighting and disable regex syntax
+        pcall(vim.treesitter.start)
+        -- Enable treesitter-based indentation
+        vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+      end,
+    })
+
+    vim.api.nvim_create_autocmd("User", {
+      pattern = "LazyDone",
+      callback = function()
+        local installed = require("nvim-treesitter.config").get_installed()
+
+        local missing = vim.tbl_filter(function(parser)
+          return not vim.tbl_contains(installed, parser)
+        end, parsers)
+
+        if #missing > 0 then
+          require("nvim-treesitter").install(missing)
+        end
+      end,
+    })
+  end,
+
+  config = function()
+    require("nvim-treesitter").setup()
   end,
 }
 
