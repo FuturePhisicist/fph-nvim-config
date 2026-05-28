@@ -43,7 +43,6 @@ return {
         -- filetypes = { "python" },
         single_file_support = true,
       },
-      clangd = {},
       clangd = {
         cmd = {
           "clangd",
@@ -58,10 +57,15 @@ return {
       jsonls = {},
       rust_analyzer = {},
       postgres_lsp = {},
+      -- NOTE: Java is managed separately in its own plugin
     },
 
     -- Optional custom setups
-    setup = {},
+    setup = {
+      -- jdtls = function()
+      --   return true
+      -- end,
+	},
   },
 
   config = function(_, opts)
