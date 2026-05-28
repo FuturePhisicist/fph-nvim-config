@@ -24,3 +24,21 @@ vim.g.mapleader = " "
 --   trail = "·",     -- optional: show trailing space
 -- })
 
+vim.opt.list = true
+
+vim.opt.listchars = {
+  -- leading spaces only
+  lead = "·",
+
+  -- leading tabs only
+  -- tab = "┈┈",
+  -- leadtab = "┈┈",
+  -- tab = "⇥⇥",
+  -- leadtab = "⇥⇥",
+  tab = "⇥ ",
+  leadtab = "⇥ ",
+
+  -- optional: trailing spaces
+  trail = "·",
+}
+
