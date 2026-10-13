@@ -58,6 +58,11 @@ return {
       rust_analyzer = {},
       postgres_lsp = {},
       -- NOTE: Java is managed separately in its own plugin
+      racket_langserver = {
+        cmd = { "racket", "-l", "racket-langserver" },
+        filetypes = { "racket" },
+        single_file_support = true,
+      },
     },
 
     -- Optional custom setups
@@ -84,9 +89,13 @@ return {
       -- nothing to do by default – left here for symmetry
     end
 
+    local mason_servers = vim.tbl_filter(function(server)
+      return server ~= "racket_langserver"
+    end, vim.tbl_keys(opts.servers))
+
     mason_lspconfig.setup({
-      ensure_installed = vim.tbl_keys(opts.servers),
-      automatic_installation = true,
+      ensure_installed = mason_servers,
+      automatic_enable = false,
     })
 
     local capabilities = opts.capabilities
@@ -98,6 +107,7 @@ return {
 
       if not (opts.setup and opts.setup[server] and opts.setup[server](server, final_opts)) then
         vim.lsp.config(server, final_opts)
+        vim.lsp.enable(server)
       end
     end
   end,

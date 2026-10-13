@@ -16,6 +16,11 @@ Features:
 2. Run `:Lazy sync` inside Neovim
 3. Install LSP servers (see below)
 
+```bash
+raco pkg install racket-langserver
+racket-langserver --help
+```
+
 > [!IMPORTANT]
 > This command is for C/C++ projects that put their compile_commands.json not in the root of the project!
 
