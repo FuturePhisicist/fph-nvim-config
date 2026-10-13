@@ -6,19 +6,35 @@ Features:
 - File explorer like VSCode
 - Tabs and recent file switcher (Ctrl+Tab)
 - Comment toggling
-- LSP: Python, C/C++, Bash, Docker, JSON
+- LSP: Python, C/C++, Bash, Docker, JSON...
 - Manual completion
 - Snippet expansion (LuaSnip + friendly-snippets)
 
 ## Setup
 
-1. Install Neovim ≥ 0.9
+1. Install Neovim >= 0.12
 2. Run `:Lazy sync` inside Neovim
 3. Install LSP servers (see below)
 
 ```bash
+# It is not Mason managed
 raco pkg install racket-langserver
 racket-langserver --help
+```
+
+```bash
+# Update Nvim
+sudo mv /opt/nvim-linux-x86_64 /opt/nvim-linux-x86_64.back
+curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
+sudo tar -C /opt -xzf nvim-linux-x86_64.tar.gz
+rm nvim-linux-x86_64.tar.gz
+
+# If migrating from 0.11.x
+npm install -g tree-sitter-cli
+cargo install tree-sitter-cli
+
+:Lazy restore
+:Lazy sync
 ```
 
 > [!IMPORTANT]
